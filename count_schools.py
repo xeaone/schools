@@ -3,8 +3,6 @@ from tools import format, schools
 def print_counts():
     rows = schools()
 
-    headers:list[str] = None
-
     uniqueSchools = 0
     totalSchools:int = 0
     schoolsByState = {}
@@ -12,14 +10,6 @@ def print_counts():
     schoolsByCity = {}
 
     for row in rows:
-
-        # capture headers and skip counting
-        if not headers:
-            headers = row
-            continue
-
-        if len(headers) != len(row):
-            raise Exception('row length not valid')
 
         # row values
         city = row[4]
@@ -62,5 +52,3 @@ def print_counts():
     print(f'Schools by Metro-centric locale: {format(schoolsByLocale)}')
     print(f'City with most schools: {mostSchoolsByCity[0]} ({mostSchoolsByCity[1]} Schools)')
     print(f'Unique Schools: {uniqueSchools}')
-
-print_counts()

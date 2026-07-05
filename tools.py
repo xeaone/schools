@@ -1,6 +1,8 @@
 import json
 import csv
 
+from states import STATES
+
 def format(data: dict | list)-> str:
     s = json.dumps(data, indent=2, sort_keys=True)
     s = s.replace('{', '')
@@ -13,4 +15,7 @@ def schools () -> list[str]:
     # read file with correct encoding
     stream = open('./school_data.csv', encoding='cp1252', newline='')
     reader = csv.reader(stream, delimiter=',')
-    return list(reader)
+    return list(reader)[1:]
+
+def stateName(abbreviation: str) -> str:
+    return STATES.get(abbreviation, '')
