@@ -17,5 +17,5 @@ def schools () -> list[str]:
     reader = csv.reader(stream, delimiter=',')
     return list(reader)[1:]
 
-def stateName(abbreviation: str) -> str:
+def state_name(abbreviation: str) -> str:
     return STATES.get(abbreviation, '')

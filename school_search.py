@@ -1,41 +1,41 @@
 import time
-from tools import schools, stateName
+from tools import schools, state_name
 
-lowerMatches = ['school', 'high', 'elementary']
+lower_matches = ['school', 'high', 'elementary']
 rows = schools()
 
 def search_schools(search: str):
     start_time = time.perf_counter()
 
-    searchText = search.lower()
-    searchParts = searchText.split()
+    search_text = search.lower()
+    search_parts = search_text.split()
     results:list[str] = []
 
     for row in rows:
 
         name = row[3]
-        nameText = name.lower()
-        nameParts = nameText.split()
+        name_text = name.lower()
+        name_parts = name_text.split()
 
         city = row[4]
-        cityText = city.lower()
-        cityParts = cityText.split()
+        city_text = city.lower()
+        city_parts = city_text.split()
 
         state = row[5]
-        stateText = stateName(state.lower())
-        stateParts = stateText.split()
+        state_text = state_name(state.lower())
+        state_parts = state_text.split()
 
-        compareParts = []
-        compareParts.extend(nameParts)
-        compareParts.extend(cityParts)
-        compareParts.extend(stateParts)
-        compareParts = list(set(compareParts))
+        compare_parts = []
+        compare_parts.extend(name_parts)
+        compare_parts.extend(city_parts)
+        compare_parts.extend(state_parts)
+        compare_parts = list(set(compare_parts))
 
         # score the strings and handle lower search values
         score = 0
-        for comparePart in compareParts:
-            if comparePart in searchParts:
-                if comparePart in lowerMatches:
+        for compare_part in compare_parts:
+            if compare_part in search_parts:
+                if compare_part in lower_matches:
                     score += 1
                 else:
                     score += 2
@@ -46,8 +46,8 @@ def search_schools(search: str):
                 'city': city,
                 'state': state,
                 'score': score,
-                'searchParts': searchParts,
-                'compareParts': compareParts,
+                'search_parts': search_parts,
+                'compare_parts': compare_parts,
             })
 
     results.sort(key=lambda item: item['score'], reverse=True)
