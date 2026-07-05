@@ -1,8 +1,7 @@
-from tools import format, schools
-
-rows = schools()
+from tools import format_json, schools_parse
 
 def print_counts():
+    schools = schools_parse()
 
     unique_schools = 0
     total_schools:int = 0
@@ -10,12 +9,12 @@ def print_counts():
     schools_by_locale = {}
     schools_by_city = {}
 
-    for row in rows:
+    for school in schools:
 
         # row values
-        city = row[4]
-        state = row[5]
-        locale = row[8]
+        city = school[4]
+        state = school[5]
+        locale = school[8]
 
         # How many total schools are in this data set?
         total_schools += 1
@@ -45,7 +44,7 @@ def print_counts():
     most_schools_by_city = schools_by_city_sorted[0]
 
     print(f'Total Schools: {total_schools}\n')
-    print(f'Schools by State: {format(schools_by_state)}')
-    print(f'Schools by Metro-centric locale: {format(schools_by_locale)}')
+    print(f'Schools by State: {format_json(schools_by_state)}')
+    print(f'Schools by Metro-centric locale: {format_json(schools_by_locale)}')
     print(f'City with most schools: {most_schools_by_city[0]} ({most_schools_by_city[1]} Schools)\n')
     print(f'Unique Schools: {unique_schools}\n')
