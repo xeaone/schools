@@ -14,4 +14,4 @@ https://github.com/xeaone/schools
 
 ### Snap Shot
 
-![image](./snap-shot.png)
+![image](./documents/snap-shot.png)
