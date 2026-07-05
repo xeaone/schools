@@ -1,7 +1,8 @@
 from tools import format, schools
 
+rows = schools()
+
 def print_counts():
-    rows = schools()
 
     unique_schools = 0
     total_schools:int = 0

@@ -31,10 +31,11 @@ def search_schools(search: str):
         compare_parts.extend(state_parts)
         compare_parts = list(set(compare_parts))
 
-        # score the strings and handle lower search values
+        # score the words
         score = 0
         for compare_part in compare_parts:
             if compare_part in search_parts:
+                # treat common values as a lower score
                 if compare_part in lower_matches:
                     score += 1
                 else:

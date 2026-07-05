@@ -2,16 +2,10 @@
 
 Activate Environment
 
-### Start Env
-
-```sh
-source venv/bin/activate
-```
-
-### Run Test
+### Run Program
 
 ```
-python ./test.py
+python ./main.py
 ```
 
 ### Repo Link
