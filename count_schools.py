@@ -47,8 +47,8 @@ def print_counts():
     schoolsByCitySorted = sorted(schoolsByCity.items(), key=lambda item: item[1], reverse=True)
     mostSchoolsByCity = schoolsByCitySorted[0]
 
-    print(f'Total Schools: {totalSchools}')
+    print(f'Total Schools: {totalSchools}\n')
     print(f'Schools by State: {format(schoolsByState)}')
     print(f'Schools by Metro-centric locale: {format(schoolsByLocale)}')
-    print(f'City with most schools: {mostSchoolsByCity[0]} ({mostSchoolsByCity[1]} Schools)')
-    print(f'Unique Schools: {uniqueSchools}')
+    print(f'City with most schools: {mostSchoolsByCity[0]} ({mostSchoolsByCity[1]} Schools)\n')
+    print(f'Unique Schools: {uniqueSchools}\n')
