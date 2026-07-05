@@ -4,8 +4,8 @@ lowerMatches = ['school', 'high', 'elementary']
 
 def search_schools(search: str):
     searchText = search.lower().strip()
+    searchText = searchText.replace(',')
     searchParts = searchText.split()
-    searchScore = len(searchParts)
 
     results:list[str] = []
     rows = schools()
@@ -44,7 +44,6 @@ def search_schools(search: str):
                 'city': city,
                 'state': state,
                 'score': score,
-                'searchScore': searchScore,
                 'searchParts': searchParts,
                 'compareParts': compareParts,
             })
